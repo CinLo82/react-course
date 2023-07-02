@@ -1,11 +1,12 @@
-function NotFound() {
+import Layout from '../../components/Layout'
 
-    return (
-      <div className="text-3xl font-bold underline bg-red-400">
-      NotFound!
-    </div>
-    )
-  }
-  
+function NotFound() {
+  return (
+    <Layout>
+      NotFound
+    </Layout>
+  )
+} 
   export default NotFound
+  
   

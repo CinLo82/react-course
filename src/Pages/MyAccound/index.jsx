@@ -1,11 +1,12 @@
-function MyAccound() {
+import Layout from '../../components/Layout'
 
-    return (
-      <div className="text-3xl font-bold underline bg-red-400">
-      MyAccound!
-    </div>
-    )
-  }
-  
+function MyAccound() {
+      return (
+        <Layout>
+          My Accound
+      </Layout>
+      )
+    }
+    
   export default MyAccound
   
