@@ -13,20 +13,19 @@ const CheckoutSideMenu = () => {
     const handleDelete = (id) => {
         const filteredproducts = context.cartProducts.filter(product => product.id != id)
         context.setCartProducts(filteredproducts)
-        context.setCounter(context.counter - 1)
     }
 
-    const handleCheckout =() => {
+    const handleCheckout = () => {
         const orderToAdd = {
           date: '07.03.2023',
-          products: context.CartProducts,
-          totalProducts: context.CartProducts.lenght,
-          totalPrice: totalPrice(context.CartProducts),
+          products: context.cartProducts,
+          totalProducts: context.cartProducts.length,
+          totalPrice: totalPrice(context.cartProducts),
         };
     
-        context.setOrder([...context.Order, orderToAdd]);
+        context.setOrder([...context.order, orderToAdd]);
         context.setCartProducts([]);
-        context.setCount(0);
+      
       }
 
     return (
@@ -40,7 +39,7 @@ const CheckoutSideMenu = () => {
                     />
                 </div>
             </div>
-            <div className='p-6 overflow-y-scroll'>
+            <div className='px-6 overflow-y-scroll flex-1 '>
                 {
                 context.cartProducts.map(product => (
                     <OrderCard 
@@ -50,16 +49,18 @@ const CheckoutSideMenu = () => {
                         price={product.price}
                         handleDelete={handleDelete}
                         id={product.id}
-                        handleCheckout={handleCheckout}
                     />
                 ))
                 }
             </div>
-            <div className='px-6 '>
-                <p className='flex justify-between items-center bg-green-200 p-2 rounded-lg'>
+            <div className='px-6 mb-6'>
+                <p className='flex justify-between items-center bg-green-200 p-2 rounded-lg mb-2'>
                     <span className='font-light'>Total:</span>
                     <span className='font-medium text-2xl'>${totalPrice(context.cartProducts)}</span>
                 </p>
+                <button 
+                    className='w-full bg-black py-3 text-white rounded-lg ' 
+                    onClick={() => handleCheckout()}>Checkout</button>
             </div>
             
         </aside>
