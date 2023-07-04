@@ -17,7 +17,6 @@ const Card = (data) => {
             productData 
         ])
         context.openCheckoutSideMenu()
-        console.log('CART', context.cartProducts)
     }
 
     const renderIcon = (id) => {

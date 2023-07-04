@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
-import { XCircleIcon } from '@heroicons/react/24/solid'
+import { TrashIcon } from '@heroicons/react/24/solid'
 
 
-const OrderCard = ({ title, imageUrl, price }) => {
+const OrderCard = ({ id, title, imageUrl, price, handleDelete }) => {
     const [quantity, setQuantity] = useState(1)
 
       const incrementQuantity = () => {
@@ -47,8 +47,10 @@ const OrderCard = ({ title, imageUrl, price }) => {
       </div>
             <div className='flex items-center gap-2'>
                 <p className='text-lg font-medium'>{`$${totalPrice}`}</p>
-                <XCircleIcon 
-                        className='h-6 w-6 text-red-500 cursor-pointer'  
+                <TrashIcon 
+                    className='h-6 w-6 text-gray-500 cursor-pointer'  
+                    onClick={() => handleDelete(id)}
+
                 />
             </div>
         </div>
@@ -59,6 +61,9 @@ OrderCard.propTypes = {
     title: PropTypes.node.isRequired,
     imageUrl: PropTypes.node.isRequired,
     price: PropTypes.node.isRequired,
+    id: PropTypes.node.isRequired,
+    handleDelete: PropTypes.node.isRequired,
+
   }
 
  export default OrderCard
