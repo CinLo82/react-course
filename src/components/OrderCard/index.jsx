@@ -4,21 +4,47 @@ import { TrashIcon } from '@heroicons/react/24/solid'
 
 
 const OrderCard = ({ id, title, imageUrl, price, handleDelete }) => {
+    let renderTrashIcon 
+    if (handleDelete) {
+        renderTrashIcon = <TrashIcon className='h-6 w-6 text-gray-500 cursor-pointer' onClick={() => handleDelete(id)}/>
+    }
+
+
     const [quantity, setQuantity] = useState(1)
 
-      const incrementQuantity = () => {
+    const incrementQuantity = () => {
         setQuantity(quantity + 1)
-      }
+      
+    }
     
-      const decrementQuantity = () => {
+    const decrementQuantity = () => {
         if (quantity > 1) {
-          setQuantity(quantity - 1)
+            setQuantity(quantity - 1)
         }
-      }
+    }
 
-      const truncatedTitle = title.slice(0, 12);
+    let renderButtonQuantity
+    if (handleDelete) {
+        renderButtonQuantity = <div className="flex items-center">
+                                    <button
+                                        className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-1 px-2 rounded"
+                                        onClick={decrementQuantity}
+                                    >
+                                        -
+                                    </button>
+                                    <span className="mx-2">{quantity}</span>
+                                    <button
+                                        className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-1 px-2 rounded"
+                                        onClick={incrementQuantity}
+                                    >
+                                        +
+                                    </button>
+                                </div>
+    }
 
-      const totalPrice = (price * quantity).toFixed(2)
+    const truncatedTitle = title.slice(0, 12);
+
+    const totalPrice = (price * quantity).toFixed(2)
 
     return (
         <div className='flex justify-between items-center mb-3'>
@@ -27,31 +53,13 @@ const OrderCard = ({ id, title, imageUrl, price, handleDelete }) => {
                     <img className='w-full h-full rounded-lg object-cover' src={imageUrl} alt={title} />
                 </figure>
                 <div>
-          <p className='text-sm font-light'>{truncatedTitle}</p>
-          <div className="flex items-center">
-            <button
-              className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-1 px-2 rounded"
-              onClick={decrementQuantity}
-            >
-              -
-            </button>
-            <span className="mx-2">{quantity}</span>
-            <button
-              className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-1 px-2 rounded"
-              onClick={incrementQuantity}
-            >
-              +
-            </button>
-          </div>
-        </div>
-      </div>
+                    <p className='text-sm font-light'>{truncatedTitle}</p>
+                    {renderButtonQuantity}
+                </div>
+            </div>
             <div className='flex items-center gap-2'>
                 <p className='text-lg font-medium'>{`$${totalPrice}`}</p>
-                <TrashIcon 
-                    className='h-6 w-6 text-gray-500 cursor-pointer'  
-                    onClick={() => handleDelete(id)}
-
-                />
+                {renderTrashIcon}
             </div>
         </div>
     )
@@ -64,6 +72,6 @@ OrderCard.propTypes = {
     id: PropTypes.node.isRequired,
     handleDelete: PropTypes.node.isRequired,
 
-  }
+}
 
  export default OrderCard
