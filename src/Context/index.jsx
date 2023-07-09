@@ -1,7 +1,6 @@
 import { createContext, useState } from 'react'
 import PropTypes from 'prop-types'
 
-
 export const ShoppingCartContext = createContext()
 
 export const ShoppingCartProvider = ({ children }) => {
@@ -34,9 +33,7 @@ export const ShoppingCartProvider = ({ children }) => {
     const [cartProducts, setCartProducts ]=useState([])
 
      // Shopping cart. Order
-     const [order, setOrder ]=useState([
-
-     ])
+     const [order, setOrder ]=useState([])
     
     return (
         <ShoppingCartContext.Provider value={{

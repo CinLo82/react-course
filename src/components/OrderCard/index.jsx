@@ -70,7 +70,7 @@ OrderCard.propTypes = {
     imageUrl: PropTypes.node.isRequired,
     price: PropTypes.node.isRequired,
     id: PropTypes.node.isRequired,
-    handleDelete: PropTypes.node.isRequired,
+    handleDelete: PropTypes.func.isRequired,
 
 }
 
