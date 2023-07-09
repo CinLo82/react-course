@@ -12,11 +12,11 @@ function MyOrders() {
   
     return (
         <Layout>
-            <div className='w-80 items-center justify-center relative flex'>
+            <div className='w-80 mb-4 items-center justify-center relative flex'>
                 <Link to='/my-orders' className='absolute left-0'>
                     <ChevronLeftIcon className='h-6 w-6 text-gray-500 cursor-pointer'/>
                 </Link>
-                <h1>My Orders</h1> 
+                <h1 className='font-medium text-xl '>My Orders</h1> 
             </div>
             
             {

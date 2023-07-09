@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-//import { TrashIcon } from '@heroicons/react/24/solid'
+import { ChevronRightIcon } from '@heroicons/react/24/solid'
 
 const OrdersCard = ({ totalPrice, totalProducts}) => {
     OrdersCard.propTypes = {
@@ -8,12 +8,18 @@ const OrdersCard = ({ totalPrice, totalProducts}) => {
     }
 
     return (
-        <div>
-           <p className='flex flex-col w-56 bg-gray-100 rounded-lg p-2  items-center mb-3 border border-gray-200'>
-                <span>01.02.12</span>
-                <span>Total Product: {totalProducts}</span>
-                <span>Total Price: ${totalPrice}</span>
-           </p>
+        <div className='flex justify-between w-80 bg-gray-100 rounded-lg p-4 items-center mb-3 border border-gray-200'>
+            <div className='flex justify-between w-full'>
+                <p className='flex flex-col'>
+                    <span className='font-light'>01.02.12</span>
+                    <span className='font-light'>{totalProducts} articles</span>
+                </p> 
+                <p className='flex items-center gap-2'>
+                   <span className='font-medium text-2xl'>${totalPrice}</span>
+                   <ChevronRightIcon className='h-6 w-6 text-gray-500'/>
+                </p>
+            </div>
+           
         </div>
     )
 }
