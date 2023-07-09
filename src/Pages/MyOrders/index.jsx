@@ -5,14 +5,13 @@ import OrdersCard from '../../components/OrdersCard'
 import { ShoppingCartContext } from '../../Context'
 import { ChevronLeftIcon } from '@heroicons/react/24/solid'
 
-
 function MyOrders() {
 
     const context = useContext(ShoppingCartContext)
   
     return (
         <Layout>
-            <div className='w-80 mb-4 items-center justify-center relative flex'>
+            <div className='w-80 mb-2 items-center justify-center relative flex'>
                 <Link to='/my-orders' className='absolute left-0'>
                     <ChevronLeftIcon className='h-6 w-6 text-gray-500 cursor-pointer'/>
                 </Link>
