@@ -30,12 +30,12 @@ const CheckoutSideMenu = () => {
       }
 
     return (
-        <aside className={`${isCheckoutSideMenuOpen ? 'flex' : 'hidden'} checkout-side-menu  flex-col fixed right-0 border border-gray-300 rounded-lg bg-gray-200`}>
+        <aside className={`${isCheckoutSideMenuOpen ? 'flex' : 'hidden'} checkout-side-menu  flex-col fixed right-0 border border-orange-300 rounded-lg bg-orange-200`}>
             <div className='flex justify-between items-center p-6'>
                 <h2 className='font-medium text-xl'>My Order</h2>
                 <div>
                     <XCircleIcon 
-                        className='h-6 w-6 text-red-500 cursor-pointer' 
+                        className='h-6 w-6 text-orange-700 cursor-pointer' 
                         onClick={() => closeCheckoutSideMenu()} 
                     />
                 </div>
@@ -55,13 +55,13 @@ const CheckoutSideMenu = () => {
                 }
             </div>
             <div className='px-6 mb-6'>
-                <p className='flex justify-between items-center bg-green-200 p-2 rounded-lg mb-2'>
+                <p className='flex justify-between items-center bg-orange-400 p-2 rounded-lg mb-2'>
                     <span className='font-light'>Total:</span>
                     <span className='font-medium text-2xl'>${totalPrice(context.cartProducts)}</span>
                 </p>
                 <Link to='/my-orders/last'>
                     <button 
-                        className='w-full bg-black py-3 text-white rounded-lg ' 
+                        className='w-full bg-orange-600 py-3 text-white rounded-lg ' 
                         onClick={() => handleCheckout()}
                     >
                         Checkout

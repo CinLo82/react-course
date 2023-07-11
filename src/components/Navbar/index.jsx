@@ -9,8 +9,66 @@ const Navbar  = ()  => {
 
     let activeStyle = "underline underline-offset-4"
 
+    const signOut = localStorage.getItem('sign-out')
+    const parsedSignOut = JSON.parse(signOut)
+    const isUserSignOut = context.signOut || parsedSignOut
+
+    const handleSignOut = () => {
+        const stringifiedSignOut = JSON.stringify(true)
+        localStorage.getItem('sign-out', stringifiedSignOut)
+        context.setSignOut(true)
+    }
+
+    const renderView = () => {
+        if (isUserSignOut) {
+            return (
+                <li>
+                    <NavLink 
+                        to='/sign-in'
+                        onClick={() => handleSignOut()}
+                        className={({ isActive }) => 
+                        isActive ? activeStyle : undefined
+                        }
+                     >
+                        Sign Out
+                    </NavLink>
+                </li>
+            )
+        
+        } else {
+            return (
+                <>
+                    <li className='text-black/60'>
+                        cinlo@cinlo.com
+                    </li>
+                    <li>
+                        <NavLink
+                            to='/my-orders'
+                            className={({ isActive }) => isActive ? activeStyle : undefined}>
+                            My Orders
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to='/my-account'
+                            className={({ isActive }) => isActive ? activeStyle : undefined}>
+                            My Account
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to='/sign-in'
+                            className={({ isActive }) => isActive ? activeStyle : undefined}
+                            onClick={() => handleSignOut()}>
+                            Sign out
+                        </NavLink>
+                    </li>
+                </>
+            )
+        }
+    }
     return (
-        <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-8 text-sm font-ligth top-0 bg-gray-200">
+        <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-8 text-sm font-ligth top-0 bg-orange-200">
             <ul className="flex items-center gap-3">
                 <li className="font-semibold text-lg">
                     <NavLink 
@@ -93,46 +151,14 @@ const Navbar  = ()  => {
                 </li>
             </ul>
             <ul className="flex items-center gap-3">
-                <li className="text-black/60">
-                    cinlo@gmail.com
-                </li>
-                <li>
-                    <NavLink 
-                        to='/my-orders'
-                        className={({ isActive }) => 
-                        isActive ? activeStyle : undefined                                  
-                        }
-                    >
-                        My Orders
-                    </NavLink>
-                </li>
-                <li>
-                    < NavLink 
-                        to='/my-accound'
-                        className={({ isActive }) => 
-                        isActive ? activeStyle : undefined
-                        }
-                    >
-                        My Accound
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink 
-                        to='/sign-in'
-                        className={({ isActive }) => 
-                        isActive ? activeStyle : undefined
-                        }
-                    >
-                        Sign In
-                    </NavLink>
-                </li>
+                    { renderView()}
                 <li className='flex gap-1 items-center'>  
-                    <ShoppingBagIcon className='h-6 w-6 text-red-300 ' /> {context.cartProducts.length}
+                    <ShoppingBagIcon className='h-6 w-6 text-amber-600 ' /> {context.cartProducts.length}
                 </li>
             </ul>
         </nav>
-    )
+    ) 
+
 }
- 
 
 export default Navbar;

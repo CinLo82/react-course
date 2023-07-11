@@ -6,7 +6,7 @@ import { TrashIcon } from '@heroicons/react/24/solid'
 const OrderCard = ({ id, title, imageUrl, price, handleDelete }) => {
     let renderTrashIcon 
     if (handleDelete) {
-        renderTrashIcon = <TrashIcon className='h-6 w-6 text-gray-500 cursor-pointer' onClick={() => handleDelete(id)}/>
+        renderTrashIcon = <TrashIcon className='h-6 w-6 text-orange-600 cursor-pointer' onClick={() => handleDelete(id)}/>
     }
 
 
@@ -27,14 +27,14 @@ const OrderCard = ({ id, title, imageUrl, price, handleDelete }) => {
     if (handleDelete) {
         renderButtonQuantity = <div className="flex items-center">
                                     <button
-                                        className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-1 px-2 rounded"
+                                        className="bg-orange-400 text-white font-bold py-1 px-2 rounded"
                                         onClick={decrementQuantity}
                                     >
                                         -
                                     </button>
                                     <span className="mx-2">{quantity}</span>
                                     <button
-                                        className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-1 px-2 rounded"
+                                        className="bg-orange-400 text-white font-bold py-1 px-2 rounded"
                                         onClick={incrementQuantity}
                                     >
                                         +

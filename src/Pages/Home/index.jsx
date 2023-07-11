@@ -3,6 +3,7 @@ import Layout from '../../components/Layout'
 import Card from '../../components/Card'
 import ProductDetail from '../../components/ProductDetail'
 import { ShoppingCartContext } from '../../Context'
+import './styles.css'
 
 function Home() {
 
@@ -33,10 +34,10 @@ function Home() {
 			<input 
 				type="text" 
 				placeholder='Search a Product'
-				className='rounded-lg border border-gray-300 w-80 p-2 mb-2 focus:outline-none'
+				className='rounded-lg border border-orange-300 bg-orange-200 w-80 p-2 mb-2 focus:outline-none'
 				onChange={(event) => context.setSearchByTitle(event.target.value)}
 			/>
-			<div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>
+			<div className='grid-autofill'>
 				{
 				renderView()
 				} 

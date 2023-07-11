@@ -1,0 +1,10 @@
+.grid-autofill {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px);
+    justify-content: center;
+    justify-items: center;
+    gap: 26px;
+    box-sizing: border-box;
+    padding: 0 5%;
+}
