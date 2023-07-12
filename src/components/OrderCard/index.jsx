@@ -6,7 +6,7 @@ import { TrashIcon } from '@heroicons/react/24/solid'
 const OrderCard = ({ id, title, imageUrl, price, handleDelete }) => {
     let renderTrashIcon 
     if (handleDelete) {
-        renderTrashIcon = <TrashIcon className='h-6 w-6 text-orange-600 cursor-pointer' onClick={() => handleDelete(id)}/>
+        renderTrashIcon = <TrashIcon className='h-6 w-6 text-orange-600 cursor-pointer mr-2' onClick={() => handleDelete(id)}/>
     }
 
 
@@ -47,7 +47,7 @@ const OrderCard = ({ id, title, imageUrl, price, handleDelete }) => {
     const totalPrice = (price * quantity).toFixed(2)
 
     return (
-        <div className='flex justify-between items-center mb-3'>
+        <div className='flex justify-between items-center border border-orange-400 rounded-lg mb-3'>
             <div className='flex items-center gap-2'>
                 <figure className='w-20 h-20 '>
                     <img className='w-full h-full rounded-lg object-cover' src={imageUrl} alt={title} />
@@ -58,7 +58,7 @@ const OrderCard = ({ id, title, imageUrl, price, handleDelete }) => {
                 </div>
             </div>
             <div className='flex items-center gap-2'>
-                <p className='text-lg font-medium'>{`$${totalPrice}`}</p>
+                <p className='text-lg font-medium mr-2'>{`$${totalPrice}`}</p>
                 {renderTrashIcon}
             </div>
         </div>

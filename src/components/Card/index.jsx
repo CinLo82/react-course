@@ -24,7 +24,7 @@ const Card = (data) => {
 
         if (isInCart) {
             return (
-                <CheckIcon className='absolute top-0 right-0 flex justify-center items-center bg-orange-600 w-6 h-6 rounded-full m-2 p-1 text-white' />
+                <CheckIcon className='absolute top-0 right-0 flex justify-center items-center bg-orange-600 w-6 h-6 rounded-full m-2 p-1 text-orange-100' />
             )
         } else
         return (
@@ -32,7 +32,7 @@ const Card = (data) => {
                     className='absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1'
                     onClick={() => addProductToCart(data.data)}
             >
-                   <PlusIcon className='w-6 f-6 text-orange-600  font-bold'/>
+                   <PlusIcon className='w-6 f-6 text-orange-600 font-bold'/>
             </div>
         )
     }
@@ -50,8 +50,8 @@ const Card = (data) => {
                 />
                 {renderIcon(data.data.id)}
             </figure>
-            <p className='flex justify-between'>
-                <span className='text-sm font-light'>{data.data.title}</span>
+            <p className='flex justify-between items-center'>
+                <span className='text-sm font-light '>{data.data.title}</span>
                 <span className='text-lg font-semibold'>${data.data.price}</span>
             </p>
         </div>

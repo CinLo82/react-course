@@ -23,7 +23,7 @@ export const initializeLocalStorage = () => {
     } else {
       parsedSignOut = JSON.parse(signOutInLocalStorage)
     }
-  }
+}
 
 export const ShoppingCartProvider = ({ children }) => {
     ShoppingCartProvider.propTypes = {

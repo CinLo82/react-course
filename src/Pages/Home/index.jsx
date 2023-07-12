@@ -26,7 +26,7 @@ function Home() {
 
     return (
 		<Layout>
-			<div className='flex items-center justify-center w-80 mb-4'>
+			<div className='flex items-center justify-center w-80 mb-6 mt-3'>
 				<h1 className='font-medium text-xl'>
 				Exclusive Products
 				</h1>
@@ -34,7 +34,7 @@ function Home() {
 			<input 
 				type="text" 
 				placeholder='Search a Product'
-				className='rounded-lg border border-orange-300 bg-orange-200 w-80 p-2 mb-2 focus:outline-none'
+				className='rounded-lg border border-orange-300 bg-orange-200 w-80 p-2 mb-6 focus:outline-none'
 				onChange={(event) => context.setSearchByTitle(event.target.value)}
 			/>
 			<div className='grid-autofill'>

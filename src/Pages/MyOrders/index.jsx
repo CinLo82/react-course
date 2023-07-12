@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Layout from '../../components/Layout'
 import OrdersCard from '../../components/OrdersCard'
 import { ShoppingCartContext } from '../../Context'
-import { ChevronLeftIcon } from '@heroicons/react/24/solid'
 
 function MyOrders() {
 
@@ -11,24 +10,23 @@ function MyOrders() {
   
     return (
         <Layout>
-            <div className='w-80 mb-2 items-center justify-center relative flex'>
+            <div className='w-80 items-center justify-center relative flex mb-6 mt-3'>
                 <Link to='/my-orders' className='absolute left-0'>
-                    <ChevronLeftIcon className='h-6 w-6 text-gray-500 cursor-pointer'/>
+                   
                 </Link>
                 <h1 className='font-medium text-xl '>My Orders</h1> 
             </div>
-            
-            {
-                context.order.map((order, index) => (
-                    <Link key={index} to={`/my-orders/${index}`}>
-                        <OrdersCard 
-                            totalPrice={order.totalPrice} 
-                            totalProducts={order.totalProducts} />
-                    </Link>
-               
-                ))
-            }
-      
+            <div className='bg-orange-200 px-4 pt-4 pb-1 rounded-lg'> 
+                {
+                    context.order.map((order, index) => (
+                        <Link key={index} to={`/my-orders/${index}`}>
+                            <OrdersCard 
+                                totalPrice={order.totalPrice} 
+                                totalProducts={order.totalProducts} />
+                        </Link>
+                    ))
+                }
+            </div>
         </Layout>
     )
 } 

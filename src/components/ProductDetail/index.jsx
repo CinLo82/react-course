@@ -12,7 +12,7 @@ const ProductDetail = () => {
                 <h2 className='font-medium text-xl'>Detail</h2>
                 <div>
                     <XCircleIcon 
-                        className="h-6 w-6 text-red-500 cursor-pointer" 
+                        className="h-6 w-6 text-orange-700  cursor-pointer" 
                         onClick={() => closeProductDetail()} 
                     />
                 </div>
