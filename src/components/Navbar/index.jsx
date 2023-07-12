@@ -33,7 +33,7 @@ const Navbar  = ()  => {
             return (
                 <>
                     <li className='text-black/60'>
-                        cinlo@cinlo.com
+                        {parsedAccount?.email }
                     </li>
                     <li>
                         <NavLink

@@ -1,7 +1,7 @@
 import { useRoutes, BrowserRouter, Navigate } from 'react-router-dom'
 import { useContext } from 'react'
 import Home from '../Home'
-import MyAccound from '../MyAccound'
+import MyAccount from '../MyAccount'
 import MyOrder from '../MyOrder'
 import MyOrders from '../MyOrders'
 import NotFound from '../NotFound'
@@ -32,7 +32,7 @@ const AppRouters = () => {
 	{ path: '/electronics', element: hasUserAnAccount && !isUserSignOut ? <Home /> : <Navigate replace to={'/sign-in'} /> },
 	{ path: '/furnitures', element: hasUserAnAccount && !isUserSignOut ? <Home /> : <Navigate replace to={'/sign-in'} /> },
 	{ path: '/others', element: hasUserAnAccount && !isUserSignOut ? <Home /> : <Navigate replace to={'/sign-in'} /> },
-	{ path: '/my-accound', element: <MyAccound /> },
+	{ path: '/my-account', element: <MyAccount /> },
 	{ path: '/my-order', element: <MyOrder /> },
 	{ path: '/my-orders', element: <MyOrders /> },
 	{ path: '/my-orders/last', element: <MyOrder /> },
