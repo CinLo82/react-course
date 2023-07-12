@@ -25,8 +25,6 @@ function SignIn() {
 		context.setSignOut(false)
 		// redirect
 		return <Navigate replace to={'/'}/>
-
-		
 	}
 
 
@@ -46,7 +44,6 @@ function SignIn() {
 		handleSignIn()
 	}
 
-	
 
 	const renderLogIn = () => {
 		return (

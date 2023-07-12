@@ -13,6 +13,14 @@ const Navbar  = ()  => {
     const signOut = localStorage.getItem('sign-out')
     const parsedSignOut = JSON.parse(signOut)
     const isUserSignOut = context.signOut || parsedSignOut
+    //Account
+    const account = localStorage.getItem('account')
+    const parsedAccount = JSON.parse(account)
+    // has an account 
+    const noAccountInLocalStorage = parsedAccount ? Object.keys(parsedAccount).length === 0 : true
+    const noAccountInLocalState = context.account ? Object.keys(context.account).length === 0 : true
+    const hasUserAnAccount = !noAccountInLocalStorage || !noAccountInLocalState
+
 
     const handleSignOut = () => {
         const stringifiedSignOut = JSON.stringify(true)
@@ -21,22 +29,7 @@ const Navbar  = ()  => {
     }
 
     const renderView = () => {
-        if (isUserSignOut) {
-            return (
-                <li>
-                    <NavLink 
-                        to='/sign-in'
-                        onClick={() => handleSignOut()}
-                        className={({ isActive }) => 
-                        isActive ? activeStyle : undefined
-                        }
-                     >
-                        Sign Out
-                    </NavLink>
-                </li>
-            )
-        
-        } else {
+        if (hasUserAnAccount && !isUserSignOut) {
             return (
                 <>
                     <li className='text-black/60'>
@@ -66,6 +59,18 @@ const Navbar  = ()  => {
                     </li>
                 </>
             )
+        } else {
+            <li>
+                <NavLink 
+                    to='/sign-in'
+                    onClick={() => handleSignOut()}
+                    className={({ isActive }) => 
+                    isActive ? activeStyle : undefined
+                    }
+                >
+                    Sign Out
+                </NavLink>
+            </li>
         }
     }
     return (
@@ -73,7 +78,7 @@ const Navbar  = ()  => {
             <ul className="flex items-center gap-3">
                 <li className="font-semibold text-lg">
                     <NavLink 
-                        to='/'
+                        to={`${isUserSignOut ? '/sign-in' : '/'}`}
                         onClick={() => {context.setSearchByCategory(null)
                         }}
                         className={({ isActive }) => 
