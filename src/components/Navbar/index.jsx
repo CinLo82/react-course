@@ -9,6 +9,7 @@ const Navbar  = ()  => {
 
     let activeStyle = "underline underline-offset-4"
 
+    // sign out
     const signOut = localStorage.getItem('sign-out')
     const parsedSignOut = JSON.parse(signOut)
     const isUserSignOut = context.signOut || parsedSignOut
